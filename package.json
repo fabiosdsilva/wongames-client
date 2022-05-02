@@ -11,7 +11,7 @@
     "test:watch": "jest --watch --maxWorkers=25%",
     "test:ci": "jest --runInBand",
     "generate": "yarn plop --plopfile generators/plopfile.js",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p ./public -p 6006",
     "build-storybook": "build-storybook",
     "postinstall": "husky install",
     "prepare": "husky install"
