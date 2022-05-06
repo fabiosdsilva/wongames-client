@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import Banner from '.'
+import Banner, { BannerProps } from '.'
 
 export default {
   title: 'Banner',
@@ -11,9 +11,18 @@ export default {
     buttonLabel: 'Buy now',
     buttonLink: '/games/defy-death'
   },
+  argTypes: {
+    ribbon: {
+      type: 'string'
+    }
+  },
   parameters: {
     layout: 'fullscreen'
   }
 } as Meta
 
-export const Default: Story = (args) => <Banner {...args} />
+export const WithRibbon: Story<BannerProps> = (args) => (
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+    <Banner {...args} />
+  </div>
+)

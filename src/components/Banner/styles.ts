@@ -1,7 +1,17 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import * as RibbonStyles from 'components/Ribbon/styles'
+
 export const Wrapper = styled.main`
+  ${media.lessThan('large')`
+      ${RibbonStyles.Wrapper} {
+        right: 0;
+        &::before {
+          display: none;
+        }
+      }
+  `}
   position: relative;
 
   ${media.greaterThan('medium')`
