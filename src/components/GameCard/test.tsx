@@ -71,12 +71,12 @@ describe('<GameCard />', () => {
     renderWithTheme(
       <GameCard
         {...props}
-        ribbon="My Ribbon"
+        ribbon="primary"
         ribbonColor="secondary"
         ribbonSize="small"
       />
     )
-    const ribbon = screen.getByText(/my ribbon/i)
+    const ribbon = screen.getByText(/primary/i)
 
     expect(ribbon).toHaveStyle({ backgroundColor: '#3CD3C1' })
     expect(ribbon).toHaveStyle({ height: '2.6rem', fontSize: '1.2rem' })
