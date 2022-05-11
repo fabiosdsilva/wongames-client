@@ -24,6 +24,12 @@ const Home = () => (
       </Container>
 
       <Container>
+        <Heading color="black" lineLeft lineColor="secondary">
+          Upcoming
+        </Heading>
+      </Container>
+
+      <Container>
         <Footer></Footer>
       </Container>
     </section>
