@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
+import theme from './theme'
+
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Poppins';
@@ -31,6 +33,11 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &::before,
+    &::after {
+      box-sizing: inherit;
+    }
   }
 
   html {
@@ -42,7 +49,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Poppins',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family: 'Poppins',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: ${theme.colors.mainBg};
   }
 `
 
