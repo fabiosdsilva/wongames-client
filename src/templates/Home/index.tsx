@@ -18,19 +18,19 @@ const Home = () => (
       </Container>
 
       <Container>
-        <Heading color="black" lineLeft lineColor="secondary">
+        <Heading color="white" lineLeft lineColor="secondary">
           Most popular
         </Heading>
       </Container>
 
       <Container>
-        <Heading color="black" lineLeft lineColor="secondary">
+        <Heading color="white" lineLeft lineColor="secondary">
           Upcoming
         </Heading>
       </Container>
 
       <Container>
-        <Heading color="black" lineLeft lineColor="secondary">
+        <Heading color="white" lineLeft lineColor="secondary">
           Free games
         </Heading>
       </Container>
