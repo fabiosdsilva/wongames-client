@@ -18,6 +18,12 @@ const Home = () => (
       </Container>
 
       <Container>
+        <Heading color="black" lineLeft lineColor="secondary">
+          Most popular
+        </Heading>
+      </Container>
+
+      <Container>
         <Footer></Footer>
       </Container>
     </section>
