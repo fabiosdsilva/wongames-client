@@ -1,8 +1,7 @@
 export default {
-  title: 'King Arthur: Knight" s Tale',
-  subtitle: 'A riveting dark fantasy RPG',
+  title: 'Read Dead is back!',
+  subtitle: 'Come see John’s new adventures',
   buttonLabel: 'Buy now',
-  buttonLink:
-    'https://store.steampowered.com/app/1157390/King_Arthur_Knights_Tale/',
+  buttonLink: '/rdr2',
   backgroundImage: '/img/red-dead-img.jpg'
 }
