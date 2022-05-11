@@ -22,8 +22,11 @@ export const Content = styled.div`
   `}
 `
 
+export const Info = styled.div`
+  max-width: calc(100% - 2.5rem);
+`
 export const Image = styled.div`
-  min-height: 14rem;
+  height: 14rem;
   position: relative;
   width: 100%;
   background: #f6f7f8;
@@ -37,6 +40,12 @@ export const Image = styled.div`
   background-size: 80rem 14rem;
   animation: placeholderShimmer 1s linear infinite forwards;
 
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   @keyframes placeholderShimmer {
     0% {
       background-position: -40rem 0;
@@ -45,14 +54,6 @@ export const Image = styled.div`
     100% {
       background-position: 40rem 0;
     }
-  }
-`
-
-export const Info = styled.div`
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 `
 
