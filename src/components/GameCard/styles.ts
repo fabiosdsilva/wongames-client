@@ -23,7 +23,8 @@ export const Content = styled.div`
 `
 
 export const Image = styled.div`
-  height: 14rem;
+  min-height: 14rem;
+  position: relative;
   width: 100%;
   background: #f6f7f8;
   background-image: linear-gradient(
@@ -35,6 +36,16 @@ export const Image = styled.div`
   );
   background-size: 80rem 14rem;
   animation: placeholderShimmer 1s linear infinite forwards;
+
+  @keyframes placeholderShimmer {
+    0% {
+      background-position: -40rem 0;
+    }
+
+    100% {
+      background-position: 40rem 0;
+    }
+  }
 `
 
 export const Info = styled.div`
