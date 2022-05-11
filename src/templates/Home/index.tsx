@@ -30,6 +30,12 @@ const Home = () => (
       </Container>
 
       <Container>
+        <Heading color="black" lineLeft lineColor="secondary">
+          Free games
+        </Heading>
+      </Container>
+
+      <Container>
         <Footer></Footer>
       </Container>
     </section>
