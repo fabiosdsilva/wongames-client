@@ -3,8 +3,6 @@ import * as S from './styles'
 import Slider, { SliderSettings } from '../Slider'
 import GameCard, { GameCardProps } from '../GameCard'
 
-import '../../../.jest/match-media-mock'
-
 import {
   ArrowBackIos as ArrowLeft,
   ArrowForwardIos as ArrowRight
