@@ -26,7 +26,7 @@ export const Info = styled.div`
   max-width: calc(100% - 2.5rem);
 `
 export const Image = styled.div`
-  height: 14rem;
+  min-height: 14rem;
   position: relative;
   width: 100%;
   background: #f6f7f8;
