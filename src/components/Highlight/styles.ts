@@ -59,7 +59,7 @@ export const FloatImage = styled.img`
     align-self: end;
 
     ${media.greaterThan('medium')`
-      max-height: 32rem;
+      max-height: auto;
     `}
   `}
 `
