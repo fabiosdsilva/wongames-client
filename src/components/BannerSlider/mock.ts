@@ -8,7 +8,10 @@ export default [
     price: '235',
     promotionalPrice: '215',
     buttonLabel: 'Comprar',
-    buttonLink: '#'
+    buttonLink: '#',
+    ribbon: '20% de desconto!',
+    ribbonColor: 'primary',
+    ribbonSize: 'normal'
   },
   {
     id: '2',
