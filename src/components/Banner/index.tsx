@@ -35,7 +35,7 @@ const Banner = ({
       <S.Title>{title}</S.Title>
       <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
       <Button as="a" href={buttonLink} size="large">
-        {buttonLabel}
+        <span>{buttonLabel}</span>
       </Button>
     </S.Caption>
   </S.Wrapper>

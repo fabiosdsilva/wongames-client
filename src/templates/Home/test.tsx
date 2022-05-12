@@ -1,27 +1,52 @@
-import { screen } from '@testing-library/react'
+import '../../../.jest/match-media-mock'
+
+import { getByLabelText, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import Home from '.'
 
+import GamesMock from 'components/GameCardSlider/mock'
+import BannerMock from 'components/BannerSlider/mock'
+import HighlightMock from 'components/Highlight/mock'
+
+const props = {
+  banners: [BannerMock][0],
+  newGames: [GamesMock][0],
+  mostPopularGames: [GamesMock][0],
+  mostPopularHighlight: [HighlightMock][0],
+  upcommingGames: [GamesMock][0],
+  upcommingHighligth: [HighlightMock][0],
+  upcommingMoreGames: [GamesMock][0],
+  freeGames: [GamesMock][0],
+  freeHighligth: [HighlightMock][0]
+}
+
 describe('<Home />', () => {
-  it('should render the heading', () => {
-    renderWithTheme(<Home />)
+  it('verificar se está redenrizando o menu', () => {
+    renderWithTheme(<Home {...props} />)
 
+    // menu
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
-  })
 
-  it('verificar se os headings das sections estão sendo renderizados', () => {
-    renderWithTheme(<Home />)
+    // sections
+    expect(screen.getAllByRole('heading', { name: /News/i })).toHaveLength(1)
+    expect(
+      screen.getAllByRole('heading', { name: /Most popular/i })
+    ).toHaveLength(1)
+    expect(screen.getAllByRole('heading', { name: /Upcoming/i })).toHaveLength(
+      1
+    )
+    expect(
+      screen.getAllByRole('heading', { name: /Free games/i })
+    ).toHaveLength(1)
 
-    expect(screen.getByRole('heading', { name: /news/i })).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: /most popular/i })
-    ).toBeInTheDocument()
+      screen.getAllByRole('img', { name: /Population Zero/i })
+    ).toHaveLength(21)
+
+    // footer
     expect(
-      screen.getByRole('heading', { name: /upcoming/i })
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /free games/i })
+      screen.getByRole('heading', { name: /FOLLOW US/i })
     ).toBeInTheDocument()
   })
 })
