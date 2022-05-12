@@ -7,7 +7,7 @@ export default [
     image: 'https://source.unsplash.com/user/willianjusten/300x140',
     price: '235',
     promotionalPrice: '215',
-    buttonLabel: 'Comprar',
+    buttonLabel: 'Buy now',
     buttonLink: '#',
     ribbon: '20% de desconto!',
     ribbonColor: 'primary',
@@ -21,7 +21,7 @@ export default [
     image: 'https://source.unsplash.com/user/willianjusten/300x141',
     price: '235',
     promotionalPrice: '215',
-    buttonLabel: 'Comprar',
+    buttonLabel: 'Buy now',
     buttonLink: '#'
   },
   {
@@ -32,7 +32,7 @@ export default [
     image: 'https://source.unsplash.com/user/willianjusten/300x142',
     price: '235',
     promotionalPrice: '215',
-    buttonLabel: 'Comprar',
+    buttonLabel: 'Buy now',
     buttonLink: '#'
   }
 ]
