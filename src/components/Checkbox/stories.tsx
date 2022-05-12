@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react'
+
 import Checkbox from '.'
 
 export default {
@@ -6,4 +7,4 @@ export default {
   component: Checkbox
 } as Meta
 
-export const Default: Story = () => <Checkbox />
+export const Default: Story = (args) => <Checkbox {...args} />
