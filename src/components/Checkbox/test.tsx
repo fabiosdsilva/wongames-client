@@ -1,4 +1,5 @@
-import { screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { renderWithTheme } from 'utils/tests/helpers'
 
@@ -33,5 +34,41 @@ describe('<Checkbox />', () => {
     expect(screen.getByText(/checkbox label/i)).toHaveStyle({
       color: theme.colors.black
     })
+  })
+
+  it('verificar se o checkbox está realmente clicado', async () => {
+    const onCheck = jest.fn()
+
+    renderWithTheme(<Checkbox label="Checkbox" onCheck={onCheck} />)
+
+    userEvent.click(screen.getByRole('checkbox'))
+    await waitFor(() => {
+      expect(onCheck).toHaveBeenCalledTimes(1)
+    })
+
+    expect(onCheck).toHaveBeenCalledWith(true)
+  })
+
+  it('verificar se o checkbox está desmarcado', async () => {
+    const onCheck = jest.fn()
+
+    renderWithTheme(<Checkbox label="Checkbox" onCheck={onCheck} isChecked />)
+
+    userEvent.click(screen.getByRole('checkbox'))
+    await waitFor(() => {
+      expect(onCheck).toHaveBeenCalledTimes(1)
+    })
+
+    expect(onCheck).toHaveBeenCalledWith(false)
+  })
+
+  it('verificar acessibilidade com a tecla tab', () => {
+    renderWithTheme(<Checkbox label="Checkbox" labelFor="Checkbox" />)
+
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+
+    expect(screen.getByLabelText(/checkbox/i)).toHaveFocus()
   })
 })
