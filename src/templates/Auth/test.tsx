@@ -1,13 +1,35 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+
+import { renderWithTheme } from 'utils/tests/helpers'
 
 import Auth from '.'
 
 describe('<Auth />', () => {
   it('should render the heading', () => {
-    const { container } = render(<Auth />)
+    renderWithTheme(
+      <Auth title="Auth">
+        <input type="text" />
+      </Auth>
+    )
 
-    expect(screen.getByRole('heading', { name: /Auth/i })).toBeInTheDocument()
+    // verificar se está renderizando o título
+    expect(
+      screen.getByRole('heading', {
+        name: /all your favorite games in one place/i
+      })
+    ).toBeInTheDocument()
 
-    expect(container.firstChild).toMatchSnapshot()
+    // verificar se está renderizando o subtitulo
+    expect(
+      screen.getByRole('heading', {
+        name: /won is the best and most complete gaming platform./i
+      })
+    ).toBeInTheDocument()
+
+    // verificar se está renderizando as logos
+    expect(screen.getAllByRole('img', { name: /won games/i })).toHaveLength(2)
+
+    // verificar se tem o titulo do content
+    expect(screen.getByRole('heading', { name: /auth/i })).toBeInTheDocument()
   })
 })
