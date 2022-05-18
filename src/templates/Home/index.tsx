@@ -57,12 +57,6 @@ const Home = ({
     </S.SectionUpcoming>
 
     <ShowCase title="Free games" highlight={freeHighligth} games={freeGames} />
-
-    <S.SectionFooter>
-      <Container>
-        <Footer />
-      </Container>
-    </S.SectionFooter>
   </Base>
 )
 
