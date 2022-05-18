@@ -2,7 +2,6 @@ import * as S from './styles'
 
 import Container from 'components/Container'
 import Footer from 'components/Footer'
-import Menu from 'components/Menu'
 import BannerSlider from 'components/BannerSlider'
 
 import { BannerProps } from 'components/Banner'
