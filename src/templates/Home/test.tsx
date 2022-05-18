@@ -1,6 +1,6 @@
 import '../../../.jest/match-media-mock'
 
-import { getByLabelText, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import Home from '.'
@@ -21,32 +21,29 @@ const props = {
   freeHighligth: [HighlightMock][0]
 }
 
+jest.mock('components/ShowCase', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock ShowCase"></div>
+    }
+  }
+})
+
+jest.mock('components/BannerSlider', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Banner Slider"></div>
+    }
+  }
+})
+
 describe('<Home />', () => {
   it('verificar se está redenrizando o menu', () => {
     renderWithTheme(<Home {...props} />)
 
-    // menu
-    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
-
-    // sections
-    expect(screen.getAllByRole('heading', { name: /News/i })).toHaveLength(1)
-    expect(
-      screen.getAllByRole('heading', { name: /Most popular/i })
-    ).toHaveLength(1)
-    expect(screen.getAllByRole('heading', { name: /Upcoming/i })).toHaveLength(
-      1
-    )
-    expect(
-      screen.getAllByRole('heading', { name: /Free games/i })
-    ).toHaveLength(1)
-
-    expect(
-      screen.getAllByRole('img', { name: /Population Zero/i })
-    ).toHaveLength(21)
-
-    // footer
-    expect(
-      screen.getByRole('heading', { name: /FOLLOW US/i })
-    ).toBeInTheDocument()
+    expect(screen.getByTestId('Mock Banner Slider')).toBeInTheDocument()
+    expect(screen.getAllByTestId('Mock ShowCase')).toHaveLength(5)
   })
 })
