@@ -5,8 +5,12 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import GameDatails, { GameDatailsProps } from '.'
 
 const props: GameDatailsProps = {
-  developer: 'Gearbox Software',
-  platforms: ['windows', 'linux', 'mac']
+  developer: 'Different Tales',
+  releaseDate: '2020-11-21T23:00:00',
+  platforms: ['windows', 'linux', 'mac'],
+  editor: 'Walkabout',
+  rating: 'BR0',
+  genres: ['Role-playing']
 }
 
 describe('<GameDatails />', () => {
@@ -33,5 +37,23 @@ describe('<GameDatails />', () => {
     expect(screen.getByRole('img', { name: /windows/i })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /linux/i })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: /mac/i })).toBeInTheDocument()
+  })
+
+  it('renderizar free rating quando BR0', () => {
+    renderWithTheme(<GameDatails {...props} />)
+
+    expect(screen.getByText(/free/i)).toBeInTheDocument()
+  })
+
+  it('renderizar 18+ rating quando BR18', () => {
+    renderWithTheme(<GameDatails {...props} rating="BR18" />)
+
+    expect(screen.getByText(/18\+/i)).toBeInTheDocument()
+  })
+
+  it('renderizar data formatada', () => {
+    renderWithTheme(<GameDatails {...props} />)
+
+    expect(screen.getByText('Nov 21, 2020')).toBeInTheDocument()
   })
 })

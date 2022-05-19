@@ -1,6 +1,8 @@
 import { Story, Meta } from '@storybook/react'
 import GameDatails, { GameDatailsProps } from '.'
 
+import gameDetailsMock from './mock'
+
 export default {
   title: 'Game/GameDatails',
   component: GameDatails,
@@ -10,7 +12,7 @@ export default {
     }
   },
   args: {
-    platforms: ['windows', 'linux', 'mac']
+    ...gameDetailsMock
   },
   argTypes: {
     platforms: {
@@ -18,6 +20,12 @@ export default {
         type: 'inline-check',
         options: ['windows', 'linux', 'mac']
       }
+    },
+    genres: {
+      control: 'object'
+    },
+    releaseDate: {
+      control: 'date'
     }
   }
 } as Meta
