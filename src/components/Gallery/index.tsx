@@ -1,20 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import * as S from './styles'
 import Slider, { SliderSettings } from '../Slider'
 
 import {
   ArrowBackIos as ArrowLeft,
-  ArrowForwardIos as ArrowRight
+  ArrowForwardIos as ArrowRight,
+  Close
 } from '@styled-icons/material-outlined'
-
-type GalleyImagesProps = {
-  src: string
-  label: string
-}
-
-export type GalleryProps = {
-  items: GalleyImagesProps[]
-}
 
 const settings: SliderSettings = {
   slidesToShow: 4,
@@ -50,8 +42,24 @@ const settings: SliderSettings = {
   ]
 }
 
+export type GalleryImageProps = {
+  src: string
+  label: string
+}
+export type GalleryProps = {
+  items: GalleryImageProps[]
+}
 const Gallery = ({ items }: GalleryProps) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    const handleKeyUp = ({ key }: KeyboardEvent) => {
+      key === 'Escape' && setIsOpen(false)
+    }
+
+    window.addEventListener('keyup', handleKeyUp)
+    return () => window.removeEventListener('keyup', handleKeyUp)
+  }, [])
 
   return (
     <S.Wrapper>
@@ -68,11 +76,15 @@ const Gallery = ({ items }: GalleryProps) => {
           />
         ))}
       </Slider>
-      <S.Modal
-        isOpen={isOpen}
-        aria-label="modal"
-        aria-hidden={!isOpen}
-      ></S.Modal>
+      <S.Modal isOpen={isOpen} aria-label="modal" aria-hidden={!isOpen}>
+        <S.Close
+          role="button"
+          aria-label="close modal"
+          onClick={() => setIsOpen(false)}
+        >
+          <Close size={40} />
+        </S.Close>
+      </S.Modal>
     </S.Wrapper>
   )
 }
