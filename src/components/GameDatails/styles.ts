@@ -42,6 +42,7 @@ export const IconWrapper = styled.div``
 
 export const Icon = styled.span`
   ${({ theme }) => css`
+    color: ${theme.colors.white};
     display: inline-block;
     margin-right: ${theme.spacings.xxsmall};
   `}
