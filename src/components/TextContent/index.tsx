@@ -1,8 +1,16 @@
+import Heading from 'components/Heading'
 import * as S from './styles'
 
-const TextContent = () => (
+export type TextContentProps = {
+  title?: string
+  content: string
+}
+
+const TextContent = ({ title, content }: TextContentProps) => (
   <S.Wrapper>
-    <h1>TextContent</h1>
+    {!!title && <Heading>{title}</Heading>}
+
+    <div dangerouslySetInnerHTML={{ __html: content }}></div>
   </S.Wrapper>
 )
 
