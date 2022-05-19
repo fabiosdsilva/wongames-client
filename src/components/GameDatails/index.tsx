@@ -1,7 +1,21 @@
 import Heading from 'components/Heading'
 import * as S from './styles'
 
-const GameDatails = () => (
+import { Windows, Linux, Apple } from '@styled-icons/fa-brands'
+
+type Platforms = 'windows' | 'linux' | 'mac'
+
+export type GameDatailsProps = {
+  platforms: Platforms[]
+}
+
+const platformsIcons = {
+  windows: <Windows size={18} title="Windows" color="white"></Windows>,
+  linux: <Linux size={18} title="Linux" color="white"></Linux>,
+  mac: <Apple size={18} title="Mac" color="white"></Apple>
+}
+
+const GameDatails = ({ platforms }: GameDatailsProps) => (
   <S.Wrapper>
     <Heading lineLeft lineColor="secondary">
       Game Details
@@ -19,6 +33,11 @@ const GameDatails = () => (
 
       <S.Block>
         <S.Title>Platforms</S.Title>
+        <S.IconWrapper>
+          {platforms.map((icon: Platforms) => (
+            <S.Icon key={icon}>{platformsIcons[icon]}</S.Icon>
+          ))}
+        </S.IconWrapper>
       </S.Block>
 
       <S.Block>

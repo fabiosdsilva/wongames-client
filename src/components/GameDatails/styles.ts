@@ -30,10 +30,19 @@ export const Title = styled.h3`
 
 export const Description = styled.p`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.medium};
+    font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.bold};
     color: ${theme.colors.white};
   `}
 `
 
 export const Block = styled.div``
+
+export const IconWrapper = styled.div``
+
+export const Icon = styled.span`
+  ${({ theme }) => css`
+    display: inline-block;
+    margin-right: ${theme.spacings.xxsmall};
+  `}
+`

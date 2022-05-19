@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import GameDatails from '.'
+import GameDatails, { GameDatailsProps } from '.'
 
 export default {
   title: 'Game/GameDatails',
@@ -8,11 +8,22 @@ export default {
     backgrounds: {
       default: 'won-dark'
     }
+  },
+  args: {
+    platforms: ['windows', 'linux', 'mac']
+  },
+  argTypes: {
+    platforms: {
+      control: {
+        type: 'inline-check',
+        options: ['windows', 'linux', 'mac']
+      }
+    }
   }
 } as Meta
 
-export const Default: Story = () => (
+export const Default: Story<GameDatailsProps> = (args) => (
   <div style={{ maxWidth: '100rem', margin: 'auto' }}>
-    <GameDatails />
+    <GameDatails {...args} />
   </div>
 )

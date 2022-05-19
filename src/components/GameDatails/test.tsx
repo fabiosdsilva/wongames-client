@@ -2,14 +2,18 @@ import { screen } from '@testing-library/react'
 
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import GameDatails from '.'
+import GameDatails, { GameDatailsProps } from '.'
+
+const props: GameDatailsProps = {
+  platforms: ['windows', 'linux', 'mac']
+}
 
 describe('<GameDatails />', () => {
-  it('should render the heading', () => {
-    renderWithTheme(<GameDatails />)
+  it('verificar se está renderizando o heading', () => {
+    renderWithTheme(<GameDatails {...props} />)
 
     expect(
-      screen.getByRole('heading', { name: /GameDatails/i })
+      screen.getByRole('heading', { name: /developer/i })
     ).toBeInTheDocument()
   })
 })
