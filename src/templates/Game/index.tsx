@@ -3,7 +3,7 @@ import * as S from './styles'
 
 const Game = () => (
   <Base>
-    <h1>Game</h1>
+    <S.Cover src="/img/red-dead-img.jpg" aria-lavel="cover" />
   </Base>
 )
 
