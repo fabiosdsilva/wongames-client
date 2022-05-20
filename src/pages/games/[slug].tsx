@@ -19,7 +19,14 @@ export async function getStaticPaths() {
 export async function getStaticProps() {
   return {
     props: {
-      cover: '/img/red-dead-img.jpg'
+      cover:
+        'https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg?t=1649065890',
+      gameInfo: {
+        title: 'Cyberpunk 2077',
+        description:
+          'Cyberpunk 2077 é um RPG de ação e aventura em mundo aberto que se passa em Night City, uma megalópole perigosa onde todos são obcecados por poder, glamour e alterações corporais.',
+        price: '199,90'
+      }
     }
   }
 }
