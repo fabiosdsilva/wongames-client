@@ -24,8 +24,6 @@ const Section = styled(Container).attrs({ as: 'section' })`
   `}
 `
 
-export const SectionGameInfo = styled(Section)``
-
 export const Cover = styled.div<CoverProps>`
   ${({ src }) => css`
     position: absolute;
@@ -39,8 +37,11 @@ export const Cover = styled.div<CoverProps>`
     opacity: 0.4;
 
     ${media.greaterThan('medium')`
-        height: 70rem;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
-     `}
+height: 70rem;
+clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+`}
   `}
 `
+export const SectionGameInfo = styled(Section)``
+
+export const SectionGallery = styled(Section)``
