@@ -45,3 +45,5 @@ clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
 export const SectionGameInfo = styled(Section)``
 
 export const SectionGallery = styled(Section)``
+
+export const SectionDescription = styled(Section)``

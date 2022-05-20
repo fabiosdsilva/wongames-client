@@ -11,19 +11,5 @@ describe('<Container />', () => {
       'max-width',
       theme.grid.container
     )
-
-    expect(container.firstChild).toMatchInlineSnapshot(`
-      .c0 {
-        max-width: 130rem;
-        margin-right: auto;
-        margin-left: auto;
-        padding-left: calc(3.2rem / 2);
-        padding-right: calc(3.2rem / 2);
-      }
-
-      <div
-        class="c0"
-      />
-    `)
   })
 })

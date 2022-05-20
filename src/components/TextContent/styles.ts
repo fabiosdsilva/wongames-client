@@ -50,5 +50,9 @@ export const Wrapper = styled.div`
     hr {
       margin: ${theme.spacings.small} 0;
     }
+
+    .description__copyrights {
+      color: ${theme.colors.gray};
+    }
   `}
 `
