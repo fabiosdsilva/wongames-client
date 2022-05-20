@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import SlickSlider from 'react-slick'
+
 import * as S from './styles'
 import Slider, { SliderSettings } from '../Slider'
-
 import {
   ArrowBackIos as ArrowLeft,
   ArrowForwardIos as ArrowRight,
@@ -59,6 +60,7 @@ export type GalleryProps = {
   items: GalleryImageProps[]
 }
 const Gallery = ({ items }: GalleryProps) => {
+  const slider = useRef<SlickSlider>(null)
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -72,7 +74,7 @@ const Gallery = ({ items }: GalleryProps) => {
 
   return (
     <S.Wrapper>
-      <Slider settings={settings}>
+      <Slider ref={slider} settings={settings}>
         {items.map((item, index) => (
           <img
             role="button"
@@ -81,6 +83,7 @@ const Gallery = ({ items }: GalleryProps) => {
             alt={`Thumb - ${item.label}`}
             onClick={() => {
               setIsOpen(true)
+              slider.current!.slickGoTo(index, true)
             }}
           />
         ))}
@@ -94,7 +97,7 @@ const Gallery = ({ items }: GalleryProps) => {
           <Close size={40} />
         </S.Close>
         <S.Content>
-          <Slider settings={modalsettings}>
+          <Slider ref={slider} settings={modalsettings}>
             {items.map((item, index) => (
               <img key={`gallery-${index}`} src={item.src} alt={item.label} />
             ))}
