@@ -1,3 +1,4 @@
+import { Divider } from 'components/Divider'
 import Gallery, { GalleryImageProps } from 'components/Gallery'
 import { GameCardProps } from 'components/GameCard'
 import GameDatails, { GameDatailsProps } from 'components/GameDatails'
@@ -51,6 +52,7 @@ const Game = ({
 
       <S.SectionGameDetails>
         <GameDatails {...details} />
+        <Divider />
       </S.SectionGameDetails>
 
       <ShowCase
