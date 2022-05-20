@@ -8,12 +8,16 @@ import {
   Close
 } from '@styled-icons/material-outlined'
 
-const settings: SliderSettings = {
-  slidesToShow: 4,
+const commonSettings: SliderSettings = {
   infinite: false,
   lazyLoad: 'ondemand',
   prevArrow: <ArrowLeft aria-label="next image" />,
-  nextArrow: <ArrowRight aria-label="previous image" />,
+  nextArrow: <ArrowRight aria-label="previous image" />
+}
+
+const settings: SliderSettings = {
+  ...commonSettings,
+  slidesToShow: 4,
   responsive: [
     {
       breakpoint: 1375,
@@ -40,6 +44,11 @@ const settings: SliderSettings = {
       }
     }
   ]
+}
+
+const modalsettings: SliderSettings = {
+  ...commonSettings,
+  slidesToShow: 1
 }
 
 export type GalleryImageProps = {
@@ -84,6 +93,13 @@ const Gallery = ({ items }: GalleryProps) => {
         >
           <Close size={40} />
         </S.Close>
+        <S.Content>
+          <Slider settings={modalsettings}>
+            {items.map((item, index) => (
+              <img key={`gallery-${index}`} src={item.src} alt={item.label} />
+            ))}
+          </Slider>
+        </S.Content>
       </S.Modal>
     </S.Wrapper>
   )
