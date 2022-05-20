@@ -11,7 +11,7 @@ export type GameDatailsProps = {
   developer: string
   releaseDate: string
   editor: string
-  rating: string
+  rating: Rating
   genres: string[]
   platforms: Platforms[]
 }
@@ -47,7 +47,7 @@ const GameDatails = ({
             day: 'numeric',
             month: 'short',
             year: 'numeric'
-          }).format(new Date(releaseDate))}
+          }).format(new Date(`${releaseDate}`))}
         </S.Description>
       </S.Block>
 

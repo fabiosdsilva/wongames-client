@@ -1,6 +1,8 @@
 import Game, { GameTamPlateProps } from 'templates/Game'
 
 import galleryMock from 'components/Gallery/mock'
+import gamesMock from 'components/GameCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
 
 export default function Index(props: GameTamPlateProps) {
   return <Game {...props} />
@@ -53,7 +55,18 @@ respective owners.
         price: '199,90'
       },
       gallery: galleryMock,
-      description: descriptionGame
+      description: descriptionGame,
+      details: {
+        developer: 'CD PROJEKT RED',
+        releaseDate: '2022-05-02T12:30:54.287Z',
+        platforms: ['windows'],
+        editor: 'CD PROJEKT RED',
+        rating: 'BR18',
+        genres: ['Role-playing', 'Action']
+      },
+      upcommingGames: gamesMock,
+      upcommingHighlight: highlightMock,
+      recommendedGames: gamesMock
     }
   }
 }
