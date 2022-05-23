@@ -3,7 +3,12 @@ import ProfileMenu from '.'
 
 export default {
   title: 'Profile/ProfileMenu',
-  component: ProfileMenu
+  component: ProfileMenu,
+  parameters: {
+    backgrounds: {
+      default: 'won-dark'
+    }
+  }
 } as Meta
 
 export const Default: Story = () => <ProfileMenu />
