@@ -10,7 +10,7 @@ const props: EmptyProps = {
 
 describe('<Empty />', () => {
   it('verificar se está renderizando a imagem, title e descrição', () => {
-    renderWithTheme(<Empty {...props} />)
+    const { container } = renderWithTheme(<Empty {...props} />)
 
     expect(
       screen.getByRole('img', { name: /a gamer in couch playing videogamer/i })
@@ -20,6 +20,8 @@ describe('<Empty />', () => {
       screen.getByRole('heading', { name: /a simple title/i })
     ).toBeInTheDocument()
     expect(screen.getByText(/a simple description/i)).toBeInTheDocument()
+
+    expect(container.parentElement).toMatchSnapshot()
   })
 
   it('verificar se está o link', () => {

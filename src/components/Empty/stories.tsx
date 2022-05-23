@@ -10,8 +10,8 @@ export default {
     }
   },
   args: {
-    title: 'A simple title',
-    description: 'a simple description',
+    title: 'Your wishlist is empty',
+    description: 'Games added to your wishlist will appear here',
     hasLink: true
   }
 } as Meta
