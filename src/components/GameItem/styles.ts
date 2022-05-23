@@ -7,8 +7,8 @@ export const Wrapper = styled.div`
     border-bottom: 0.1rem solid ${theme.colors.lightGray};
 
     ${media.greaterThan('medium')`
-            display: flex;
-        `}
+        display: flex;
+    `}
   `}
 `
 
@@ -26,10 +26,10 @@ export const ImageBox = styled.div`
     }
 
     ${media.greaterThan('medium')`
-            margin-right: ${theme.spacings.xsmall};
-            width: 15rem;
-            height: 7rem;
-        `};
+        margin-right: ${theme.spacings.xsmall};
+        width: 15rem;
+        height: 7rem;
+    `};
   `}
 `
 
@@ -48,9 +48,9 @@ export const Title = styled.h3`
     margin-bottom: ${theme.spacings.xxsmall};
 
     ${media.greaterThan('medium')`
-            font-size: 2rem;
-            line-height: 2rem;
-        `};
+        font-size: 2rem;
+        line-height: 2rem;
+    `};
   `}
 `
 
@@ -62,5 +62,11 @@ export const Price = styled.p`
     border-radius: ${theme.border.radius};
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.bold};
+  `}
+`
+export const DownloadLink = styled.a`
+  ${({ theme }) => css`
+    color: ${theme.colors.primary};
+    margin-left: ${theme.spacings.xxsmall};
   `}
 `

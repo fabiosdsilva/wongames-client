@@ -22,4 +22,14 @@ describe('<GameItem />', () => {
     ).toBeInTheDocument()
     expect(screen.getByText(/250/)).toBeInTheDocument()
   })
+
+  it('verificar se o ícone de download', () => {
+    const downloadLink = 'https://www.google.com.br/'
+
+    renderWithTheme(<GameItem {...props} downloadLink={downloadLink} />)
+
+    expect(
+      screen.getByRole('link', { name: `Get ${props.title} here` })
+    ).toHaveAttribute('href', downloadLink)
+  })
 })
