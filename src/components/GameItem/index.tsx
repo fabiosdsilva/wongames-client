@@ -2,14 +2,28 @@ import * as S from './styles'
 
 import { Download } from '@styled-icons/heroicons-solid/Download'
 
+export type PaymentInfoProps = {
+  img: string
+  flag: string
+  number: string
+  published: string
+}
+
 export type GameItemProps = {
   img: string
   title: string
   price: string
   downloadLink?: string
+  paymentInfo?: PaymentInfoProps
 }
 
-const GameItem = ({ img, title, price, downloadLink }: GameItemProps) => (
+const GameItem = ({
+  img,
+  title,
+  price,
+  downloadLink,
+  paymentInfo
+}: GameItemProps) => (
   <S.Wrapper>
     <S.ImageBox>
       <img src={img} alt={title} />
@@ -30,6 +44,15 @@ const GameItem = ({ img, title, price, downloadLink }: GameItemProps) => (
       </S.Title>
       <S.Price>{price}</S.Price>
     </S.Content>
+    {paymentInfo && (
+      <S.PaymentContent>
+        <p>{paymentInfo.published}</p>
+        <S.CardInfo>
+          <span>{paymentInfo.number}</span>
+          <img src={paymentInfo.img} alt={paymentInfo.flag} />
+        </S.CardInfo>
+      </S.PaymentContent>
+    )}
   </S.Wrapper>
 )
 
