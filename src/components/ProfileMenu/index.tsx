@@ -9,13 +9,13 @@ import {
 } from 'styled-icons/material-outlined'
 
 export type ProfileMenuProps = {
-  activeLink?: 'profile/me' | '/profile/cards' | '/profile/orders'
+  activeLink?: '/profile/me' | '/profile/cards' | '/profile/orders' | string
 }
 
 const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
   <S.Nav>
     <Link href="/profile/me" passHref>
-      <S.Link isActive={activeLink === 'profile/me'} title="My profile">
+      <S.Link isActive={activeLink === '/profile/me'} title="My profile">
         <AccountCircle size={24} />
         <span>My profile</span>
       </S.Link>
