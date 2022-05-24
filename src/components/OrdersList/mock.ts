@@ -8,7 +8,7 @@ export default [
       flag: 'mastercard',
       img: '/img/mastercard.png',
       number: '*** *** **** 4326',
-      purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
+      published: 'Purchase made on 07/20/2020 at 20:32'
     }
   },
   {
@@ -20,7 +20,7 @@ export default [
       flag: 'visa',
       img: '/img/visa.png',
       number: '*** *** **** 5423',
-      purchaseDate: 'Purchase made on 08/20/2020 at 21:12'
+      published: 'Purchase made on 08/20/2020 at 21:12'
     }
   }
 ]
