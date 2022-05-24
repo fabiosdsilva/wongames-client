@@ -23,7 +23,7 @@ exports[
   width: 3rem;
 }
 
-<main
+<div
   class=""
 >
   <h2
@@ -38,5 +38,5 @@ exports[
   <div
     data-testid="Mock GameItem"
   />
-</main>
+</div>
 `
