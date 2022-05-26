@@ -7,7 +7,7 @@ import itemsMock from './mock'
 
 describe('<ExploreSidebar />', () => {
   it('verificar se os títulos estão sendo renderizados', () => {
-    renderWithTheme(<ExploreSidebar items={itemsMock} />)
+    renderWithTheme(<ExploreSidebar items={itemsMock} initialValues={{}} />)
 
     expect(screen.getByRole('heading', { name: /price/i })).toBeInTheDocument()
     expect(
@@ -18,7 +18,7 @@ describe('<ExploreSidebar />', () => {
   })
 
   it('verificar se o radio e checkbox estão sendo renderizados', () => {
-    renderWithTheme(<ExploreSidebar items={itemsMock} />)
+    renderWithTheme(<ExploreSidebar items={itemsMock} initialValues={{}} />)
 
     // checkbox
     expect(
@@ -28,5 +28,18 @@ describe('<ExploreSidebar />', () => {
     expect(
       screen.getByRole('radio', { name: /low to high/i })
     ).toBeInTheDocument()
+  })
+
+  // verificar se o checkbox vai vir marcado
+  it('verificar se o checkbox e radio estão marcados', () => {
+    renderWithTheme(
+      <ExploreSidebar
+        items={itemsMock}
+        initialValues={{ windows: true, sort_by: 'high-to-low' }}
+      />
+    )
+
+    expect(screen.getByRole('checkbox', { name: /windows/i })).toBeChecked()
+    expect(screen.getByRole('radio', { name: /high to low/i })).toBeChecked()
   })
 })
